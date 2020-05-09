@@ -11,9 +11,11 @@ Designed for use against large schemas in conjunction with the `{ abortEarly: fa
 npm i make-joiful-errors
 ```
 
+## Usage
+
 The module exports two functions, `joiErrorFormatter` & `joiValidateWrapper`.
 
-Each function takes an `ErrorOptions` argument declaring whether to return the array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` to false helps to de-duplicate the exact same `ValidiationError` occurring in multiple places.
+Both take an `ErrorOptions` argument.
 
 ```javascript
 /**
@@ -24,15 +26,16 @@ interface ErrorOptions {
 }
 ```
 
-An optional wrapper for `joi.validate` is also provided which takes all the normal options.
+`showErrorIndexes` declares whether to return array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` to false helps to de-duplicate the exact same `ValidiationError` occurring in multiple places (see below).
 
-## Usage
 ```javascript
 import { joiErrorFormatter, joiValidateWrapper } from 'make-joiful-errors'
 
 /**
  * Use the error formatter directly when there is an error
  */
+
+// ... all of your standard joi schemas configured above here
 
 // Standard joi
 const res = joi.validate(data, schema, validationOptions);
