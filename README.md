@@ -26,7 +26,7 @@ interface ErrorOptions {
 }
 ```
 
-`showErrorIndexes` declares whether to return array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` to false helps to de-duplicate the exact same `ValidiationError` occurring in multiple places (see below).
+`showErrorIndexes` declares whether to return array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` de-duplicates the exact same `ValidiationError` from being returned (see below).
 
 ```javascript
 import { joiErrorFormatter, joiValidateWrapper } from 'make-joiful-errors'
@@ -50,7 +50,7 @@ if (res.error) {
 /**
  * Call the wrapper as you would joi.validate with an extra argument for the error formatter
  */
-joiValidateWrapper(data, joiSchema, joiValidateOptions, { showErrorIndexes: true })
+const res = joiValidateWrapper(data, joiSchema, joiValidateOptions, { showErrorIndexes: true })
 ```
 
 
