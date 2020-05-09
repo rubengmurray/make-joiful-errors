@@ -8,6 +8,13 @@ Designed for use against large schemas in conjunction with the `{ abortEarly: fa
 
 Examples:
 
+## joi 14.3.1
+```javascript
+// joiOptions = { abortEarly: false }
+ValidationError: child "myObj" fails because ["myObj" at position 0 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed], "myObj" at position 1 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed], "myObj" at position 2 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed], "myObj" at position 3 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed], "myObj" at position 4 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed], "myObj" at position 5 fails because [child "myKey" fails because ["mySubKey" is not allowed], "myKey" is not allowed, "myKey" is not allowed]]
+```
+
+
 ## joiErrorFormatter { showErrorIndexes: false }
 ```javascript
 // De-duplicates the same type of validation error

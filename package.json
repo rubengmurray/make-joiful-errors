@@ -1,6 +1,6 @@
 {
   "name": "make-joiful-errors",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A custom error formatter for joi that objectifies the error response for readability",
   "main": "build/index.js",
   "scripts": {
