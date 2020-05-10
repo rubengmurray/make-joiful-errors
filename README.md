@@ -1,6 +1,6 @@
 ### make-joiful-errors
 
-Return errors as objects for better readability.
+Return joi errors as objects to help with readability.
 
 Designed for use against large schemas in conjunction with the `{ abortEarly: false }` `joi.validate` option, but can be used by anyone wanting to format joi errors differently.
 
@@ -26,21 +26,21 @@ interface ErrorOptions {
 }
 ```
 
-`showErrorIndexes` declares whether to return array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` de-duplicates the exact same `ValidiationError` from being returned (see below).
+`showErrorIndexes` declares whether to return array indexes of each joi `ValidationError`. Setting `{ showErrorIndexes: false }` prevents the same `ValidationError` being returned multiple times (see bottom of readme for examples).
 
 ```javascript
 import { joiErrorFormatter, joiValidateWrapper } from 'make-joiful-errors'
+
+// ... all of your standard joi schemas here ...
 
 /**
  * Use the error formatter directly when there is an error
  */
 
-// ... all of your standard joi schemas configured above here
-
 // Standard joi
 const res = joi.validate(data, schema, validationOptions);
 
-// If there's an error, pass in the error and whether you want to sho
+// If there's an error, pass it into the joiErrorFormatter
 if (res.error) {
   joiErrorFormatter(res.error, { showErrorIndexes: false });
 }
